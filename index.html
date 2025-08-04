@@ -1,1 +1,101 @@
 hello this is my new website
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valentin – Architecture Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background-color: #222;
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    h2 {
+      margin: 0;
+      font-weight: normal;
+      font-size: 1.2rem;
+      color: #aaa;
+    }
+    main {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .project {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .project:hover {
+      transform: translateY(-5px);
+    }
+    .project h3 {
+      margin-top: 0;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Valentin</h1>
+    <h2>Architecture Portfolio</h2>
+  </header>
+
+  <main>
+    <p>Welcome to my architecture portfolio. Here you’ll find a selection of five projects that reflect my approach, interests, and growth as a designer.</p>
+
+    <section class="projects">
+      <div class="project">
+        <h3>Project 1 – [Title]</h3>
+        <p>Short description of your first project. Maybe mention the concept, site, or materials.</p>
+      </div>
+      <div class="project">
+        <h3>Project 2 – [Title]</h3>
+        <p>Description for your second project. Include details like function or context.</p>
+      </div>
+      <div class="project">
+        <h3>Project 3 – [Title]</h3>
+        <p>A few lines about the third project. You can add visuals later.</p>
+      </div>
+      <div class="project">
+        <h3>Project 4 – [Title]</h3>
+        <p>Description for the fourth project. Mention technical or urban challenges if relevant.</p>
+      </div>
+      <div class="project">
+        <h3>Project 5 – [Title]</h3>
+        <p>Fifth project details. Talk about design intent or users.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Valentin – All rights reserved
+  </footer>
+
+</body>
+</html>
