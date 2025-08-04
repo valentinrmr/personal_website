@@ -99,3 +99,163 @@ hello this is my new website
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Valentin – Architecture Portfolio</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+    header {
+      background-color: rgba(34, 34, 34, 0.9);
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    h2 {
+      margin: 0;
+      font-weight: normal;
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+    main {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .project {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .project:hover {
+      transform: translateY(-5px);
+    }
+    .project h3 {
+      margin-top: 0;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Valentin</h1>
+    <h2>Architecture Portfolio</h2>
+  </header>
+
+  <main>
+    <p>Welcome to my architecture portfolio. Here you’ll find a selection of five projects that reflect my approach, interests, and growth as a designer.</p>
+
+    <section class="projects">
+      <div class="project">
+        <h3>Project 1 – [Title]</h3>
+        <p>Short description of your first project.</p>
+      </div>
+      <div class="project">
+        <h3>Project 2 – [Title]</h3>
+        <p>Description for your second project.</p>
+      </div>
+      <div class="project">
+        <h3>Project 3 – [Title]</h3>
+        <p>A few lines about the third project.</p>
+      </div>
+      <div class="project">
+        <h3>Project 4 – [Title]</h3>
+        <p>Description for the fourth project.</p>
+      </div>
+      <div class="project">
+        <h3>Project 5 – [Title]</h3>
+        <p>Fifth project details.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Valentin – All rights reserved
+  </footer>
+
+  <!-- Load Three.js from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+
+  <script>
+    // Basic Three.js setup
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Create a wireframe sphere
+    const geometry = new THREE.SphereGeometry(3, 64, 64);
+    const material = new THREE.MeshBasicMaterial({ color: 0x999999, wireframe: true });
+    const sphere = new THREE.Mesh(geometry, material);
+    scene.add(sphere);
+
+    camera.position.z = 10;
+
+    // Handle mouse movement
+    let mouseX = 0;
+    let mouseY = 0;
+
+    document.addEventListener('mousemove', (event) => {
+      mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+      mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+    });
+
+    // Animate
+    function animate() {
+      requestAnimationFrame(animate);
+      sphere.rotation.y += 0.002;
+      sphere.rotation.x += 0.001;
+
+      // Smooth camera movement
+      camera.position.x += (mouseX * 2 - camera.position.x) * 0.05;
+      camera.position.y += (mouseY * 2 - camera.position.y) * 0.05;
+      camera.lookAt(scene.position);
+
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // Handle resizing
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth/window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+
+</body>
+</html>
